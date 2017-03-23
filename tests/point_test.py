@@ -1,7 +1,8 @@
 import unittest
 import random
 import point
-
+import utils
+from point import Point
 
 class TestUtils(unittest.TestCase):
 
@@ -40,3 +41,12 @@ class TestUtils(unittest.TestCase):
             count_marks[some_marks[a]] = variable - 1
         self.assertTrue(count_marks['Ming'], 1)
         self.assertTrue(count_marks['Aragon'], 1)
+
+    def test_magic_methods(self):
+        point_a = Point(9, 7)
+        point_b = Point(22, 13)
+        point_c = Point(31, 20)
+        point_d = Point(-13, -6)
+        self.assertEqual(point_a + point_b, point_c)
+        self.assertEqual(point_a - point_b, point_d)
+        self.assertEqual(abs(point_d), Point(13, 6))
